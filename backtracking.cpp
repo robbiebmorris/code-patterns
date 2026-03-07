@@ -20,6 +20,18 @@
 // next decision. If this is not true, then we just use start.
 
 // Example: LC 78: Subsets
+//
+// [1,2,3] -> [[], [1], [1,2], [1,2,3], [1,3], [2,3]]
+//
+// res: []
+// nums: [1,2,3]
+// cur: []
+// start: 0
+//
+// dfs(cur=[], start=1)
+//      dsf(cur=[2], start=2)
+//      dfs(cur=[], start=2)
+//
 class Solution {
 private:
     void dfs(vector<vector<int>>& res, vector<int>& nums, vector<int>& cur, int start) {
@@ -27,9 +39,9 @@ private:
             res.push_back(cur);
             return;
         }
-        cur.push_back(nums[start]);
+        cur.push_back(nums[start]); 
         dfs(res, nums, cur, start+1);
-        cur.pop_back();
+        cur.pop_back(); 
         dfs(res, nums, cur, start+1);
     }
 public:
@@ -65,7 +77,7 @@ public:
 // level of the tree, we consider ALL elements we can use at each level of 
 // the tree
 
-// For the same LC 78: Permutations:
+// For the same LC 78: Subsets
 
 class Solution {
 private:
@@ -89,7 +101,7 @@ public:
 // The decision tree for a sample input [1,2,3] would look like:
 
 //                                []   
-//                          /      |     \
+//                       /         |     \
 //                     [1]        [2]     [3]
 //                   /     \       |             
 //                 [1,2]  [1,3]   [2,3]
